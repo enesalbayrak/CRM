@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    container_name: db_crm
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_crm
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql
+networks:
+  mysql:
+    driver: bridge
+volumes:
+  mysql:
